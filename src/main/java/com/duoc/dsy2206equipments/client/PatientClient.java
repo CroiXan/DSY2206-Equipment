@@ -1,5 +1,7 @@
 package com.duoc.dsy2206equipments.client;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.duoc.dsy2206equipments.config.FeignBasicAuthConfig;
 import com.duoc.dsy2206equipments.models.Patient;
 
-@FeignClient(name = "patient-service", url = "http://172.31.85.255:8080/api/patients", configuration = FeignBasicAuthConfig.class)
+@FeignClient(name = "patient-service", url = "http://localhost:8080/api/patients", configuration = FeignBasicAuthConfig.class)
 public interface PatientClient {
 
     @GetMapping
-    ResponseEntity<Object> getAllPatients();
+    ResponseEntity<List<Patient>> getAllPatients();
 
     @GetMapping("/{id}")
     ResponseEntity<Object> getPatientById(@PathVariable int id);
