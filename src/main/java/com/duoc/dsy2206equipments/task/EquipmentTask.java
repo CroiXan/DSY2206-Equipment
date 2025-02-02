@@ -1,6 +1,7 @@
 package com.duoc.dsy2206equipments.task;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -70,11 +71,13 @@ public class EquipmentTask {
 
     private void checkPatientAlert(VitalSign newVitalSign, String nombrePaciente) {
         VitalSignAlert newAlert = new VitalSignAlert();
+        DateTimeFormatter isoFormatter = DateTimeFormatter.ISO_DATE_TIME;
+        String isoString = LocalDateTime.now().format(isoFormatter);
         boolean sendAlert = false;
 
         newAlert.setIdPaciente(newVitalSign.getIdPaciente());
         newAlert.setNombrePaciente(nombrePaciente);
-        newAlert.setInstante(newVitalSign.getInstante());
+        newAlert.setInstante(isoString);
         newAlert.setFrecuenciaCardiaca(newVitalSign.getFrecuenciaCardiaca() + " lpm");
         newAlert.setGravedadFrecuenciaCardiaca("Normal");
         newAlert.setFrecuenciaRespiratoria(newVitalSign.getFrecuenciaRespiratoria() + " rpm");

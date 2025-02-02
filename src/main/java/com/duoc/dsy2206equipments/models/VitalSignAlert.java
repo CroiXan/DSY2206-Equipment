@@ -30,6 +30,6 @@ public class VitalSignAlert {
     private String saturacionOxigeno;
     private String gravedadSaturacionOxigeno;
 
-    private LocalDateTime instante;
+    private String instante;
 
 }
