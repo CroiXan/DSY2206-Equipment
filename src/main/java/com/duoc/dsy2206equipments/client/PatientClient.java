@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.duoc.dsy2206equipments.config.FeignBasicAuthConfig;
 import com.duoc.dsy2206equipments.models.Patient;
 
-@FeignClient(name = "patient-service", url = "http://localhost:8080/api/patients", configuration = FeignBasicAuthConfig.class)
+@FeignClient(name = "patient-service", url = "http://172.31.85.255:8080/api/patients", configuration = FeignBasicAuthConfig.class)
 public interface PatientClient {
 
     @GetMapping

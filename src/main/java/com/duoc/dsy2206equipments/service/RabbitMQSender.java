@@ -12,7 +12,7 @@ public class RabbitMQSender {
     private RabbitTemplate rabbitTemplate;
 
     public void sendMessage(String message) {
-        rabbitTemplate.convertAndSend("EXCHANGE_TEST","ALERT", message);
+        rabbitTemplate.convertAndSend("Alertas_Exchange","ALERT", message);
         System.out.println("Mensaje enviado: " + message);
     }
 
